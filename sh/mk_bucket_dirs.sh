@@ -1,8 +1,8 @@
 # 1.  Mount $BUCKET_NAME at $MOUNT_PT
 # 2.  Run this script
-MOUNT_PT=$HOME/mnt
-BUCKET_NAME=desired_bucket
-DEL_OUTFILE=n    # Set to y or n
+MOUNT_PT=${1:-HOME/mnt}
+BUCKET_NAME=$2
+DEL_OUTFILE=${3:-y}    # Set to y or n
 
 echo "Reading objects in $BUCKET_NAME"
 OUTFILE=dir_names.txt
