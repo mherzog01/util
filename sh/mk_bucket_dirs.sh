@@ -1,6 +1,6 @@
 # 1.  Mount $BUCKET_NAME at $MOUNT_PT
 # 2.  Run this script
-MOUNT_PT=${1:-HOME/mnt}
+MOUNT_PT=${1:-$HOME/mnt}
 BUCKET_NAME=$2
 DEL_OUTFILE=${3:-y}    # Set to y or n
 
