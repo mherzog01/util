@@ -1,0 +1,25 @@
+# TODO Better way to handle args
+# TODO Check if no args are passed.  If so, give help
+if [ $1 = "-r" ]
+then
+    FILE_CMD=mv
+    ACTION_DESC="Moving"
+    shift
+else
+    FILE_CMD=cp
+    ACTION_DESC="Copying"
+fi
+FILE_PAT=$@
+
+EXTN=`date +%Y%m%d_%H%M%S`
+if [ ! -e oldver ]
+then
+    mkdir oldver
+fi
+
+for FILE in $FILE_PAT
+do
+    TARG=oldver/$FILE.$EXTN
+    echo $ACTION_DESC $FILE to $TARG
+    $FILE_CMD $FILE $TARG
+done
